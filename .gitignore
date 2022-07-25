@@ -1,0 +1,15 @@
+# Editors
+.vscode/
+
+# Python stuff
+
+__pycache__/
+data.json
+
+#sqLite
+*.sqLite3
+
+# Virtual environments
+.venv
+env/
+venv/
