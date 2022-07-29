@@ -12,8 +12,17 @@ jobs:
         with:
            python-version: "3.8"
       
-      - name: Install deps
-        run: pipenv install -r Pipfile
+      - name: pipenv
+        run: pipenv shell
+      
+      - name: Install dep black
+        run: pipenv install black
+        
+      - name: Install dep flake8
+        run: pipenv install flake8
+        
+      - name: Install dep isort
+        run: pipenv install isort
       
       - name: Check linter
         run: flake8 ./
