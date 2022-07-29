@@ -1,0 +1,35 @@
+name: Fix code
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+        with:
+           python-version: "3.8"
+           cache: "pip"
+      
+      - name: Install dep pipenv
+        run: pip install pipenv
+      
+      - name: pipenv shell
+        run: pipenv shell
+      
+      - name: Install dep black
+        run: pipenv install black
+        
+      - name: Install dep flake8
+        run: pipenv install flake8
+        
+      - name: Install dep isort
+        run: pipenv install isort
+      
+      - name: Check linter
+        run: flake8 ./
+      
+      - name: Check formatters
+        run: black --check ./ && isort --check-only ./
