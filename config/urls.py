@@ -7,5 +7,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("home/", home),
     path("btc_usd/", btc_usd),
-    path("history/", history)
+    path("history/", history),
 ]
