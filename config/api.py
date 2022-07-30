@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import asdict, dataclass
+from typing import List
 
 import requests
 from django.http import JsonResponse
@@ -41,7 +42,7 @@ class ExchangeRate:
         return self.value == other.value
 
 
-ExchangeRates = [ExchangeRate]
+ExchangeRates = List[ExchangeRate]
 
 
 class ExchangeRatesHistory:
@@ -80,6 +81,6 @@ def btc_usd(request):
 
 def history(request):
     data = ExchangeRatesHistory.as_dict()
-    with open("history.json", "w") as outfile:
-        json.dump(data, outfile, indent=4)
+    with open("history.json", "w") as file:
+        json.dump(data, file, indent=4)
     return JsonResponse(ExchangeRatesHistory.as_dict())
