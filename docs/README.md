@@ -1,7 +1,7 @@
 1. Social Network
 https://www.hackerdraw.com/docs/3ec3d8c4-9563-4b44-8f7e-325a88b643e1
 ###
-'''
+```
 Table user {
   id integer
   role integer
@@ -54,12 +54,12 @@ Ref: comments.user_id > user.id
 Ref: likes.user_id > user.id
 Ref: likes.number > likes.id
 Ref: comments.history > comments.id
-'''
+```
 
 Car services
 https://www.hackerdraw.com/docs/1c705552-c9a7-480f-8915-a9bfe065d706
 
-'''
+```
 Table client {
   id integer
   role integer
@@ -99,5 +99,4 @@ Ref: visit.client_id > client.id
 Ref: role.id > client.role
 Ref: visit.service_id > client.id
 Ref: services.id > visit.service_id
-
-'''
+```
